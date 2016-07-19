@@ -43,27 +43,24 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+    { title: 'Red', id: 1 },
+    { title: 'Blue', id: 2 },
+    { title: 'Black', id: 3 },
+    { title: 'White', id: 4 },
+    { title: 'Green', id: 5 },
+    { title: 'Colorless', id: 6 }
   ];
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('GeoLocationCtrl', function($scope) {
 
+
+})
+
+.controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);

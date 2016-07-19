@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "MyApp",
+    "name": "MTG X",
     "description": "Description of the app",
     "version": "0.1.0",
     "app": {
@@ -16,13 +16,13 @@
     "permissions": [
         "clipboardWrite",
         "clipboardRead",
-        {
-            "fileSystem": [
-                "write",
-                "retainEntries",
-                "directory"
-            ]
-        },
         "unlimitedStorage"
-    ]
+    ],
+    "offline_enabled": false,
+    "optional_permissions": [],
+    "externally_connectable": {
+        "ids": [],
+        "matches": [],
+        "accepts_tls_channel_id": false
+    }
 }

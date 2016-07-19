@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,22 +40,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/layouts/sidemenu-and-tabs.html'
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.blankpage', {
+      url: '/blankpage',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/blankpage.html'
         }
       }
     })
-    .state('app.concreteTab', {
-      url: '/contreteTab',
+    
+    .state('app.geolocation', {
+      url: '/geolocation',
       views: {
         'menuContent': {
-          templateUrl: 'templates/concrete-tabs/main-tab.html'
+          templateUrl: 'templates/geolocation.html',
+          controller: 'GeoLocationCtrl'
         }
       }
     })
+    
     .state('app.playlists', {
       url: '/playlists',
       views: {
@@ -65,7 +68,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
+    .state('app.concreteTab', {
+      url: '/contreteTab',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/concrete-tabs/tab-main.html'
+        }
+      }
+    })
   .state('app.single', {
     url: '/playlists/:playlistId',
     views: {
@@ -107,5 +117,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   });
 
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/geolocation');
 });
+
+app.config(['$ionicConfigProvider', function($ionicConfigProvider) {
+
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+
+}]);
