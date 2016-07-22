@@ -48,6 +48,16 @@ var app = angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.
         }
       }
     })
+
+    .state('app.imagecrawl', {
+      url: '/imagecrawl',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/imagecrawl.html',
+          controller: 'ImageCrawlCtrl'
+        }
+      }
+    })
     
     .state('app.geolocation', {
       url: '/geolocation',
@@ -117,7 +127,7 @@ var app = angular.module('starter', ['ionic', 'firebase', 'ngCordova', 'starter.
     }
   });
 
-  $urlRouterProvider.otherwise('/app/geolocation');
+  $urlRouterProvider.otherwise('/app/imagecrawl');
 });
 
 app.config(['$ionicConfigProvider', function($ionicConfigProvider) {

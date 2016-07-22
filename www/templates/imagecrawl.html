@@ -1,0 +1,21 @@
+<ion-view view-title="Data Crawl">
+  <ion-content ng-controller="ImageCrawlCtrl">
+    <h1>{{viewTitle}}</h1>
+    <div class="full-screen-div" data-tap-disabled="true">
+      <img ng-src="{{imgURL}}" alt="{{imgURL}}" />
+      <p>Rulings</p>
+      <p ng-repeat="rule in rulings">{{rule.date}}: {{rule.text}}</p>
+    </div>
+
+    <div class="list">
+       <div class="item item-input-inset">
+          <label class="item item-input-wrapper">   
+          <input type="text" ng-model="multiverseInput" ng-model-options="{ debounce: 800 }" placeholder="Multiverse ID">
+          </label>
+          <button class="button">Fake Go!</button>
+       </div>
+
+    </div>
+  </ion-content>
+</ion-view>
+

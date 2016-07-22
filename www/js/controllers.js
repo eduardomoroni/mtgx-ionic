@@ -60,47 +60,47 @@ angular.module('starter.controllers', [])
      
     $ionicPlatform.ready(function() 
     {
-        console.log("Iniciando busca.");
-        $ionicLoading.show({
-            template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Acquiring location!'
-        });
-         
-        //var posOptions = {
-        //    enableHighAccuracy: true,
-        //    timeout: 20000,
-        //    maximumAge: 0
-        //};
+      console.log("Iniciando busca.");
+      $ionicLoading.show({
+          template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Acquiring location!'
+      });
+       
+      //var posOptions = {
+      //    enableHighAccuracy: true,
+      //    timeout: 20000,
+      //    maximumAge: 0
+      //};
 
-        var posOptions = {
-            enableHighAccuracy: false,
-            timeout: 500000,
-            maximumAge: 0
-        };
- 
-        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
-            console.log("Obtendo posição.");
-            var lat  = position.coords.latitude;
-            var long = position.coords.longitude;
+      var posOptions = {
+          enableHighAccuracy: false,
+          timeout: 500000,
+          maximumAge: 0
+      };
 
-            console.log(lat + "," + long );
-             
-            var myLatlng = new google.maps.LatLng(lat, long);
-            
-            var mapOptions = {
-                center: myLatlng,
-                zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };          
-             
-            var map = new google.maps.Map(document.getElementById("map"), mapOptions);          
-             
-            $scope.map = map;   
-            $ionicLoading.hide();           
-             
-        }, function(err) {
-            $ionicLoading.hide();
-            console.log(err);
-        });
+      $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+          console.log("Obtendo posição.");
+          var lat  = position.coords.latitude;
+          var long = position.coords.longitude;
+
+          console.log(lat + "," + long );
+           
+          var myLatlng = new google.maps.LatLng(lat, long);
+          
+          var mapOptions = {
+              center: myLatlng,
+              zoom: 16,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };          
+           
+          var map = new google.maps.Map(document.getElementById("map"), mapOptions);          
+           
+          $scope.map = map;   
+          $ionicLoading.hide();           
+           
+      }, function(err) {
+          $ionicLoading.hide();
+          console.log(err);
+      });
     })               
 })
 
@@ -119,6 +119,50 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-});
+})
 
+.controller('ImageCrawlCtrl', function($scope, $http) {
+  $scope.$watch('multiverseInput', function() {
+    if ($scope.multiverseInput == undefined || $scope.multiverseInput == "")
+      multiverseId = 413041;
+    else 
+      multiverseId = $scope.multiverseInput;
 
+    $scope.viewTitle = "Crawling card #"+multiverseId;
+    $scope.imgURL = getImgURLByMultiverseId(multiverseId);
+    
+    //$scope.rulings = getRulingsFromAPIbyId(multiverseId,$http);
+    apiURL = "https://api.magicthegathering.io/v1/cards/";
+    $http.get(apiURL+multiverseId)
+    .success(function(data) {
+        console.log(data.card.rulings);
+        $scope.rulings = data.card.rulings;
+    })
+    .error(function(data) {
+        console.log("Failed to retrieve data from "+apiURL+multiverseId);
+        $scope.rulings = "";
+    });
+  });
+})
+;
+
+function getImgURLByMultiverseId(multiverseId){
+  baseImgURL = "http://gatherer.wizards.com/Handlers/Image.ashx?type=card&multiverseid=";
+  return baseImgURL + multiverseId;
+}
+
+//Essa função faz uma assync call, só que ao receber resposta já saiu da $watch
+//E não atualiza a view, uma opção é receber o $scope como parametro. Mas isso é feio.
+function getRulingsFromAPIbyId(multiverseId, $http){
+  apiURL = "https://api.magicthegathering.io/v1/cards/";
+
+  $http.get(apiURL+multiverseId)
+  .success(function(data) {
+      console.log(data.card.rulings);
+      return data.card.rulings;
+  })
+  .error(function(data) {
+      console.log("Failed to retrieve data from "+apiURL+multiverseId);
+      return "";
+  });
+}

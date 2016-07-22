@@ -1,8 +1,5 @@
 /* Empty. Add your own CSS if you like */
-#map {
+.full-screen-div {
     height: 100%;
     width: 100%;
-}
-.scroll {
-    height: 100%;
 }
