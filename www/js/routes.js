@@ -4,7 +4,7 @@
   angular.module('mtgx').config(routes);
 
   function routes($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    
+
     $urlRouterProvider.otherwise('/app/cardinfocrawl');
 
     $stateProvider
@@ -30,6 +30,16 @@
           }
         }
       })
+
+      .state('app.birthday', {
+          url: '/birthday',
+          controller: 'OverviewController',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/birthday.html'
+            }
+          }
+        })
 
       .state('app.cardinfocrawl', {
         url: '/cardinfocrawl',
