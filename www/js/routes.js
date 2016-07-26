@@ -5,7 +5,7 @@
 
   function routes($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     
-    $urlRouterProvider.otherwise('/app/imagecrawl');
+    $urlRouterProvider.otherwise('/app/cardinfocrawl');
 
     $stateProvider
     .state('app', {
@@ -31,12 +31,12 @@
         }
       })
 
-      .state('app.imagecrawl', {
-        url: '/imagecrawl',
+      .state('app.cardinfocrawl', {
+        url: '/cardinfocrawl',
         views: {
           'menuContent': {
-            templateUrl: 'templates/imagecrawl.html',
-            controller: 'ImageCrawlCtrl'
+            templateUrl: 'templates/cardinfocrawl.html',
+            controller: 'CardInfoCrawlCtrl'
           }
         }
       })

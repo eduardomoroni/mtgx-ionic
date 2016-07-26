@@ -4,9 +4,6 @@
   angular.module('mtgx.services').factory('Chats', Chats);
 
   function Chats() {
-    // Might use a resource here that returns a JSON array
-
-    // Some fake testing data
     var chats = [{
       id: 0,
       name: 'Ben Sparrow',

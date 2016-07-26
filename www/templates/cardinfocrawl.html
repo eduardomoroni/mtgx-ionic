@@ -1,5 +1,5 @@
 <ion-view view-title="Data Crawl">
-  <ion-content ng-controller="ImageCrawlCtrl">
+  <ion-content ng-controller="CardInfoCrawlCtrl">
     <h1>{{viewTitle}}</h1>
     <div class="full-screen-div" data-tap-disabled="true">
       <img ng-src="{{imgURL}}" alt="{{imgURL}}" />
@@ -8,13 +8,12 @@
     </div>
 
     <div class="list">
-       <div class="item item-input-inset">
-          <label class="item item-input-wrapper">   
+      <div class="item item-input-inset">
+        <label class="item item-input-wrapper">
           <input type="text" ng-model="multiverseInput" placeholder="Multiverse ID">
-          </label>
-          <button class="button" ng-click="fetchCardInformations(multiverseInput)">Fetch!</button>
-       </div>
+        </label>
+        <button class="button" ng-click="fetchCardInformations(multiverseInput)">Fetch!</button>
+      </div>
     </div>
   </ion-content>
 </ion-view>
-
