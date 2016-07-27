@@ -1,7 +1,7 @@
 {
-  "name": "sidemenuapp",
-  "version": "1.1.1",
-  "description": "sidemenuApp: An Ionic project",
+  "name": "MTGX",
+  "version": "0.0.1",
+  "description": "MTGX, MTG Being Social",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

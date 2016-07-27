@@ -6,14 +6,9 @@
       <p>Rulings</p>
       <p ng-repeat="rule in rulings">{{rule.date}}: {{rule.text}}</p>
     </div>
-
-    <div class="list">
-      <div class="item item-input-inset">
-        <label class="item item-input-wrapper">
-          <input type="text" ng-model="multiverseInput" placeholder="Multiverse ID">
-        </label>
-        <button class="button" ng-click="fetchCardInformations(multiverseInput)">Fetch!</button>
-      </div>
-    </div>
   </ion-content>
+  <div class="bar bar-footer bar-stable">
+    <input class="full-width" type="text" ng-model="multiverseInput" placeholder="Multiverse ID">
+    <button class="button pull-right" ng-click="fetchCardInformations(multiverseInput)">Fetch!</button>
+  </div>
 </ion-view>

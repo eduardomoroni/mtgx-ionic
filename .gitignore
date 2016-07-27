@@ -11,3 +11,6 @@ www/lib/
 *.DS_Store
 *.log
 *.swp
+
+*.git-credentials
+*.bowerrc
