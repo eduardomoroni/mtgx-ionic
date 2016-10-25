@@ -1,14 +1,14 @@
 <ion-view view-title="Data Crawl">
-  <ion-content ng-controller="CardInfoCrawlCtrl">
+  <ion-content ng-controller="CardInfoCrawlCtrl as vm">
     <h1>{{viewTitle}}</h1>
     <div class="full-screen-div" data-tap-disabled="true">
-      <img ng-src="{{imgURL}}" alt="{{imgURL}}" />
+      <img ng-src="{{vm.imgURL}}" />
       <p>Rulings</p>
-      <p ng-repeat="rule in rulings">{{rule.date}}: {{rule.text}}</p>
+      <p ng-repeat="rule in vm.rulings">{{rule.date}}: {{rule.text}}</p>
+    </div>
+    <div class="bar bar-footer bar-stable">
+      <input class="full-width" type="tel" ng-model="vm.multiverseID" placeholder="Multiverse ID">
+      <button class="button pull-right" ng-click="vm.updateVM()">Fetch!</button>
     </div>
   </ion-content>
-  <div class="bar bar-footer bar-stable">
-    <input class="full-width" type="text" ng-model="multiverseInput" placeholder="Multiverse ID">
-    <button class="button pull-right" ng-click="fetchCardInformations(multiverseInput)">Fetch!</button>
-  </div>
 </ion-view>
