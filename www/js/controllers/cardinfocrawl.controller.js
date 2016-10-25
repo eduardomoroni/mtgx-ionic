@@ -1,34 +1,35 @@
 (function() {
   'use strict';
 
-  angular.module('mtgx.controllers').controller('CardInfoCrawlCtrl', CardInfoCrawlCtrl);
+  angular.module('mtgx.controllers')
+         .controller('CardInfoCrawlCtrl', ['RulingCrawlService', CardInfoCrawlCtrl]);
 
-  CardInfoCrawlCtrl.$inject = ['$scope', '$http', 'RulingCrawl'];
-  function CardInfoCrawlCtrl ($scope, $http, RulingCrawl){
+  function CardInfoCrawlCtrl (RulingCrawlService){
 
-    $scope.fetchCardInformations = function (multiverseInput){
-      if ($scope.multiverseInput == undefined || $scope.multiverseInput == "")
-      return;
+      var vm = this;
 
-      var multiverseId = $scope.multiverseInput;
-      $scope.viewTitle = "Crawling card #"+multiverseId;
-      $scope.imgURL = getImgURLByMultiverseId(multiverseId);
-      getRulings(RulingCrawl,$scope,multiverseId);
-    }
+      vm.updateVM = function (){
+        if (vm.multiverseID == undefined || vm.multiverseID == "")
+        return;
+
+        vm.viewTitle = "Crawling card #"+vm.multiverseID;
+        vm.imgURL = vm.getImgURLByMultiverseId();
+        vm.findCard();
+      }
+
+      vm.findCard = function () {
+          RulingCrawlService.getRulings(vm.multiverseID)
+          .then(function(data) {
+            vm.rulings = data;
+          }, function(error) {
+            console.log("promessa getRulings voltou com falha");
+          });
+      }
+
+      vm.getImgURLByMultiverseId = function(){
+        var baseImgURL = "http://gatherer.wizards.com/Handlers/Image.ashx?type=card&multiverseid=";
+        return baseImgURL + vm.multiverseID;
+      }
   }
-
-  function getImgURLByMultiverseId(multiverseId){
-    var baseImgURL = "http://gatherer.wizards.com/Handlers/Image.ashx?type=card&multiverseid=";
-    return baseImgURL + multiverseId;
-  }
-
-  function getRulings(RulingCrawl, $scope, multiverseId) {
-    RulingCrawl.getRulings(multiverseId)
-    .then(function(data) {
-      $scope.rulings = data;
-    }, function(error) {
-      console.log("promessa voltou com falha");
-    });
-  };
 
 })();

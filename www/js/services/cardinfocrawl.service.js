@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('mtgx.services').factory('RulingCrawl', RulingCrawl);
+  angular.module('mtgx.services').factory('RulingCrawlService', ['$http', '$q', RulingCrawlService]);
 
-  function RulingCrawl ($http, $q) {
+  function RulingCrawlService ($http, $q) {
     return {
       getRulings: function(multiverseId) {
         return $http.get('https://api.magicthegathering.io/v1/cards/'+multiverseId)
