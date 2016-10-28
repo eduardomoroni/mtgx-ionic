@@ -5,9 +5,9 @@ describe('CardInfoCrawlCtrl', function() {
 
 	//TODO: Load modules
   beforeEach(module('mtgx.controlers'));
-	beforeEach(module('mtgx.services'));
 
 	beforeEach(inject(function(_$rootScope_, $controller) {
+		console.log("Before Each");
 		$rootScope = _$rootScope_;
 
 		//TODO: Mock service
@@ -21,6 +21,8 @@ describe('CardInfoCrawlCtrl', function() {
 						'RulingCrawlService': mockedService,
 					  'CardInfoCrawlCtrl': $rootScope }
 					 );
+
+		controller = $rootScope;
 	}));
 
 	//TODO: Call controller with mocked service and get result
