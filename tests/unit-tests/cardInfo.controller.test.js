@@ -3,40 +3,37 @@ describe('CardInfoCrawlCtrl', function() {
 	var controller,
 		  mockedService;
 
-  beforeEach(module('mtgx'));
-	beforeEach(module('mtgx.services'));
+	//TODO: Load modules
+  beforeEach(module('mtgx.controlers'));
 
-	beforeEach(module(function($provide, $urlRouterProvider) {
-    	$provide.value('$ionicTemplateCache', function(){} );
-	    $urlRouterProvider.deferIntercept();
-	}));
+	beforeEach(inject(function(_$rootScope_, $controller) {
+		console.log("Before Each");
+		$rootScope = _$rootScope_;
 
-	beforeEach(inject(function($controller, $q) {
-		deferredLogin = $q.defer();
-
+		//TODO: Mock service
 		mockedService = {
 			getCardInfo: jasmine.createSpy('cardInfo spy')
-							.and.returnValue("deferredLogin.promise")
+							.and.returnValue("anything")
 		};
 
+		//TODO: Instantiate a controller
 		controller = $controller('CardInfoCrawlCtrl', {
-						'RulingCrawlService': mockedService }
+						'RulingCrawlService': mockedService,
+					  'CardInfoCrawlCtrl': $rootScope }
 					 );
+
+		controller = $rootScope;
 	}));
 
-	describe('#fetchCardInformations', function() {
+	//TODO: Call controller with mocked service and get result
+	it('should fetch a card', function() {
+		console.log("should fetch a card");
+		console.log("mocked service: "+mockedService);
+		console.log(controller);
+		console.log(controller.multiverseID = '1');
+		console.log(controller.findCard());
 
-		beforeEach(inject(function(_$rootScope_) {
-			$rootScope = _$rootScope_;
-			controller.multiverseID = '1';
-			controller.findCard();
-		}));
+		expect(mockedService.getCardInfo).toHaveBeenCalled();
+	});
 
-		it('should fetch a card', function() {
-			console.log("should fetch a card");
-			console.log("mocked service: "+mockedService);
-        expect(mockedService.getCardInfo).toHaveBeenCalled();
-		});
-
-	})
 });
