@@ -1,23 +1,23 @@
-describe('Controllers', function(){
-    var scope, controller;
+describe('Info Gatherer', function(){
+    var controller, mockedService;
 
-    // load the controller's module
     beforeEach(module('mtgx.controllers'));
 
     beforeEach(inject(function($rootScope, $controller) {
-        scope = $rootScope.$new();
+        mockedService = {};
 
-        serviceMock = {
-          getCard: jasmine.createSpy('find spy')
-                        .and.returnValue(true)
-      };
-
-        controller = $controller('InfoGathererCtrl', {
-                'InfoGathererService': serviceMock }
-             );
+        controller = $controller('InfoGathererCtrl', {'InfoGathererService': mockedService});
     }));
 
-    it('foo bar', function(){
-        expect(scope.foo).toEqual("bar");
-    });
+    describe('#doSomething', function() {
+
+    		beforeEach(inject(function(_$rootScope_) {
+    			$rootScope = _$rootScope_;
+    		}));
+
+    		it('should foobar', function() {
+          expect(controller.foo).toBe("bar");
+    		});
+      });
+
 });
