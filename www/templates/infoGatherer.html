@@ -1,13 +1,13 @@
 <ion-view view-title="Data Crawl"ng-controller="InfoGathererCtrl as vm">
   <ion-content>
-    <h1>{{vm.name}}</h1>
+    <h1>{{vm.ObjCard.name}}</h1>
     <div class="full-screen-div" data-tap-disabled="true">
-      <img ng-src="{{vm.imgURL}}" />
-      <p ng-repeat="rule in vm.rulings">{{rule.date}}: {{rule.text}}</p>
+      <img ng-src="{{vm.ObjCard.imgURL}}" />
+      <p ng-repeat="rule in vm.ObjCard.rulings">{{rule.date}}: {{rule.text}}</p>
     </div>
   </ion-content>
   <div class="bar bar-footer bar-stable">
-    <input class="full-width" type="tel" ng-model="vm.multiverseID" placeholder="Multiverse ID">
-    <button class="button pull-right" ng-click="vm.findCard()">Find!</button>
+    <input class="full-width" type="tel" ng-model="multiverseID" placeholder="Multiverse ID">
+    <button class="button pull-right" ng-click="vm.findCard(multiverseID)">Find!</button>
   </div>
 </ion-view>

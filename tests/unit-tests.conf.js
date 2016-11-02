@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Fri Oct 28 2016 15:16:25 GMT-0200 (BRST)
+// Generated on Wed Nov 02 2016 08:39:43 GMT-0200 (BRST)
 
 module.exports = function(config) {
   config.set({
@@ -16,10 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       '../www/lib/angular/angular.js',
-      '../www/lib/angular-mocks/angular-mocks.js',
       '../www/js/*.js',
-      '../www/js/*/*.js',
-      './unit-tests/*.js'
+      '../www/lib/angular-mocks/angular-mocks.js',
+      'unit-tests/**/*tests.js'
     ],
 
 
@@ -57,7 +56,8 @@ module.exports = function(config) {
     autoWatch: true,
 
 
-    // Use the PhantomJS browser instead of Chrome
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS'],
 
 
