@@ -1,23 +1,27 @@
 describe('Info Gatherer', function(){
-    var controller, mockedService;
+    var vm, mockedService;
 
-    beforeEach(module('mtgx.controllers'));
+    //beforeEach(module('mtgx.controllers'));
 
-    beforeEach(inject(function($rootScope, $controller) {
-        mockedService = {};
+    beforeEach(function(){
+    module(function($provide){
+      $provide.service('InfoGathererService', function(){
+        this.getCard= jasmine.createSpy('getCard');
+      });
+    });
 
-        controller = $controller('InfoGathererCtrl', {'InfoGathererService': mockedService});
+    module('mtgx.controllers');
+  });
+
+    beforeEach(inject(function($rootScope, $controller, InfoGathererService) {
+        mockedService = InfoGathererService;
+        vm = $controller('InfoGathererCtrl', {'InfoGathererService': mockedService});
     }));
 
-    describe('#doSomething', function() {
-
-    		beforeEach(inject(function(_$rootScope_) {
-    			$rootScope = _$rootScope_;
-    		}));
-
-    		it('should foobar', function() {
-          expect(controller.foo).toBe("bar");
-    		});
-      });
+    it('should foobar', function() {
+      console.log(vm);
+      console.log(mockedService);
+      expect(vm.foo).toBe("bar");
+    });
 
 });
