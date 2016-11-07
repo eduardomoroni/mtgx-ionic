@@ -1,5 +1,5 @@
 describe('Service Unit Tests', function(){
-    var infoService, httpMock, qMock, rootScope;
+    var infoService, httpMock, rootScope;
 
     beforeEach(function(){
       module('mtgx.services');
@@ -15,18 +15,9 @@ describe('Service Unit Tests', function(){
         expect(infoService).toBeDefined();
     }));
 
-    // it('foo bar', inject(function(InfoGathererService) {
-    //   var result;
-    //   httpMock.expectGET(/v1\/cards\//).respond(200, {name:'bla'});
-    //
-    //   infoService.getCard('1').then(function(serverResponse) {
-    //     result = serverResponse;
-    //     console.log('kakaka'+serverResponse)
-    //   });
-    //
-    //   httpMock.flush();
-    //   rootScope.$apply();
-    //   expect(result).toEqual({name:'bla'});
-    // }));
+    it('should hit gatherling API', inject(function(InfoGathererService) {
+      httpMock.expectGET(/v1\/cards\//).respond(200);
+      infoService.getCard('1');
+    }));
 
 });
