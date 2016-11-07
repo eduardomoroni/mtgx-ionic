@@ -1,5 +1,4 @@
 angular.module('mtgx.controllers')
-.controller('DashCtrl', function($scope) {})
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   $scope.loginData = {};
 
@@ -29,22 +28,5 @@ angular.module('mtgx.controllers')
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
-  };
-})
-.controller('ChatsCtrl', function($scope, Chats) {
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
   };
 });

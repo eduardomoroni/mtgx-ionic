@@ -15,7 +15,6 @@
             vm.ObjCard.rulings = card.rulings;
             vm.ObjCard.name = card.name;
             vm.ObjCard.imgURL = card.imageUrl;
-            console.log(card);
           }, function(error) {
             console.log("promessa getRulings voltou com falha");
           });
