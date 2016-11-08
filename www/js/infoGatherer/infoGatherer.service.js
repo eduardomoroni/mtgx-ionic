@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('mtgx.services')
+  angular.module('mtgx.infoGatherer')
          .factory('InfoGathererService', ['$http', '$q', InfoGathererService]);
 
   function InfoGathererService ($http, $q) {
@@ -13,15 +13,10 @@
         })
         .catch(failedToGetInfo);
       },
-      foo: function() {
-        return "bar";
+      isEnabled: function() {
+        return true;
       }
     }
-  }
-
-  function sucess (response) {
-    console.log('response', response);
-
   }
 
   function failedToGetInfo (response){

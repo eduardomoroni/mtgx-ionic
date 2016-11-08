@@ -1,9 +1,8 @@
 describe('Info Gatherer', function(){
-    var vm, mockedService, $q, $rootScope;
+    var vm, mockedService, $q, $rootScope, modulo;
 
     beforeEach(function () {
-      module('mtgx.services');
-      module('mtgx.controllers');
+      modulo = module('mtgx.infoGatherer');
     });
 
     beforeEach(function(){
@@ -25,7 +24,6 @@ describe('Info Gatherer', function(){
       expect(vm.ObjCard.name).toBe("name");
       expect(vm.ObjCard.rulings).toBe("rulings");
       expect(vm.ObjCard.imgURL).toBe("imgURL");
-
     });
 
 });

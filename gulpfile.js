@@ -51,10 +51,19 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-gulp.task('test', function(done) {
+gulp.task('karma-unit-tests', function(done) {
     karma.start({
         configFile: __dirname + '/tests/unit-tests.conf.js',
         singleRun: true
+    }, function() {
+        done();
+    });
+});
+
+gulp.task('karma', function(done) {
+    karma.start({
+        configFile: __dirname + '/tests/unit-tests.conf.js',
+        singleRun: false
     }, function() {
         done();
     });
