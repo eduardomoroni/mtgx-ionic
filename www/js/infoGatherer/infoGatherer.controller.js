@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('mtgx.controllers')
+  angular.module('mtgx.infoGatherer')
          .controller('InfoGathererCtrl', ['InfoGathererService', InfoGathererCtrl]);
 
   function InfoGathererCtrl (InfoGathererService){
