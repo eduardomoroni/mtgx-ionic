@@ -3,7 +3,12 @@
 
   angular.module('mtgx').controller('AppCtrl', AppCtrl);
 
-  function AppCtrl($scope, $ionicModal, $timeout) {
+  function AppCtrl($scope, $ionicModal, $timeout, $translate) {
+
+    $scope.changeLanguage = function (key) {
+      $translate.use(key);
+    };
+
     $scope.loginData = {};
 
     // Create the login modal that we will use later

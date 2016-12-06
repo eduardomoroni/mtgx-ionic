@@ -1,6 +1,6 @@
 angular.module('mtgx.infoGatherer', []);
 angular.module('mtgx.cardSearch', []);
-angular.module('mtgx', ['ionic', 'mtgx.infoGatherer', 'mtgx.cardSearch'])
+angular.module('mtgx', ['ionic', 'pascalprecht.translate', 'mtgx.infoGatherer', 'mtgx.cardSearch'])
 .run(run)
 .config(config);
 
@@ -9,7 +9,6 @@ function run($ionicPlatform) {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
     if (window.StatusBar) {
       StatusBar.styleDefault();
