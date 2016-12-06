@@ -1,5 +1,6 @@
 angular.module('mtgx.infoGatherer', []);
-angular.module('mtgx', ['ionic', 'mtgx.infoGatherer'])
+angular.module('mtgx.cardSearch', []);
+angular.module('mtgx', ['ionic', 'mtgx.infoGatherer', 'mtgx.cardSearch'])
 .run(run)
 .config(config);
 
