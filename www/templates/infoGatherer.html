@@ -1,4 +1,4 @@
-<ion-view view-title="{{'view_title_data_crawl' | translate}}" ng-controller="InfoGathererCtrl as vm">
+<ion-view view-title="{{'VIEW_TITLE_INFOGATHERER' | translate}}" ng-controller="InfoGathererCtrl as vm">
   <ion-content>
     <h1>{{vm.ObjCard.name}}</h1>
     <div class="full-screen-div" data-tap-disabled="true">
@@ -7,7 +7,7 @@
     </div>
   </ion-content>
   <div class="bar bar-footer bar-stable">
-    <input class="full-width" type="tel" ng-model="multiverseID" placeholder="{{'multiverse_id_placeholder' | translate}}">
+    <input class="full-width" type="tel" ng-model="multiverseID" placeholder="{{'MULTIVERSE_ID_PLACEHOLDER' | translate}}">
     <button class="button pull-right" ng-click="vm.findCard(multiverseID)">{{'find' | translate}}</button>
   </div>
 </ion-view>

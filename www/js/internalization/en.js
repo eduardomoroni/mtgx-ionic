@@ -6,8 +6,8 @@
   function english($translateProvider) {
 
        $translateProvider.translations('en', {
-           language: "English",
-           menu_message: "Welcome"
+           LANGUAGE: "English",
+           MENU_MESSAGE: "Welcome"
        });
   }
 

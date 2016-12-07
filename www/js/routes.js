@@ -11,7 +11,7 @@
         url: '/app',
         abstract: true,
         templateUrl: 'templates/layouts/sidemenu.html',
-        controller: 'AppCtrl'
+        controller: 'LoginCtrl'
       })
 
       .state('cardSearch', {
