@@ -4,6 +4,7 @@
   angular.module('mtgx').controller('AppCtrl', AppCtrl);
 
   function AppCtrl($scope, $ionicModal, $timeout) {
+
     $scope.loginData = {};
 
     // Create the login modal that we will use later

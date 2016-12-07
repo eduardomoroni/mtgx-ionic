@@ -14,6 +14,35 @@
         controller: 'AppCtrl'
       })
 
+      .state('cardSearch', {
+        url: '/cardSearch',
+        abstract: true,
+        templateUrl: 'templates/layouts/sidemenuAndTabs.html',
+        controller: function($scope) { //Pode ficar mais elegante usando resolve
+          $scope.tabsURL = 'templates/cardSearch/cardSearchTabs.html';
+        }
+      })
+
+      .state('cardSearch.advancedSearch', {
+        url: '/advancedSearch',
+        views: {
+          'cardSearch-advanced': {
+            templateUrl: 'templates/cardSearch/advancedSearchTab.html',
+            controller: 'SimpleCardSearchCtrl'
+          }
+        }
+      })
+
+      .state('cardSearch.simpleSearch', {
+        url: '/simpleSearch',
+        views: {
+          'cardSearch-simple': {
+            templateUrl: 'templates/cardSearch/simpleSearchTab.html',
+            controller: 'AdvancedCardSearchCtrl'
+          }
+        }
+      })
+
       .state('app.infoGatherer', {
         url: '/infoGatherer',
         views: {
@@ -22,7 +51,7 @@
             controller: 'InfoGathererCtrl'
           }
         }
-      });
-    }
+    });
+  }
 
 })();
