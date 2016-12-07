@@ -7,6 +7,6 @@
     "angular-translate": "^2.13.1"
   },
   "resolutions": {
-    "angular": "^1.5.8"
+    "angular": "1.5.9"
   }
 }
