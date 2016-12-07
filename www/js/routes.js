@@ -51,6 +51,15 @@
             controller: 'InfoGathererCtrl'
           }
         }
+    })
+    .state('app.settings', {
+        url: '/settings',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/settings.html',
+            controller: 'SettingsCtrl'
+          }
+        }
     });
   }
 

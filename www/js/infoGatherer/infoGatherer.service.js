@@ -12,9 +12,6 @@
           return response.data.card;
         })
         .catch(failedToGetInfo);
-      },
-      isEnabled: function() {
-        return true;
       }
     }
   }

@@ -1,0 +1,12 @@
+<ion-view view-title="{{'VIEW_TITLE_SETTINGS' | translate}}" ng-controller="SettingsCtrl as vm">
+  <ion-content>
+    <label class="item item-input item-select" >
+      <div class="input-label" translate>
+        LANGUAGE_LABEL
+      </div>
+      <select ng-model="vm.translation" ng-change="vm.switchLanguage(vm.translation)" ng-controller="InternalizationCtrl as vm">
+        <option ng-repeat="language in vm.languages" value="{{language.abbreviation}}"> {{language.name}} </option>
+      </select>
+    </label>
+  </ion-content>
+</ion-view>

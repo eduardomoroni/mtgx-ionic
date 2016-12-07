@@ -9,18 +9,10 @@
     <ion-item menu-close href="#" ui-sref="cardSearch.simpleSearch">
       {{"MENUITEM_CARD_SEARCH" | translate}}
     </ion-item>
+    <ion-item menu-close href="#" ui-sref="app.settings">
+      {{"MENUITEM_SETTINGS" | translate}}
+    </ion-item>
   </ion-list>
   <div class="list">
-
-<!-- Melhorar Isso -->
-  <label class="item item-input item-select" >
-    <div class="input-label" translate>
-      LANGUAGE
-    </div>
-    <select ng-model="vm.translation" ng-change="vm.switchLanguage(vm.translation)">
-      <option ng-repeat="language in vm.languages" value="{{language.abbreviation}}"> {{language.name}} </option>
-    </select>
-  </label>
-
 </div>
 </ion-content>

@@ -7,6 +7,7 @@
 
        $translateProvider.translations('pt-br', {
          LANGUAGE: "Português",
+         LANGUAGE_LABEL: "Idioma de preferência",
          MENU_MESSAGE: "Seja Bem Vindo",
          VIEW_TITLE_SIMPLE_SEARCH: "Busca Simples",
          CARD_NAME: "Nome da Carta",
@@ -41,12 +42,15 @@
          MENUITEM_INFOGATHERER: "InfoGatherer",
          MENUITEM_CARD_SEARCH: "Buscar Carta",
          VIEW_TITLE_INFOGATHERER: "InfoGatherer",
+         FIND: "Procurar",
          MULTIVERSE_ID_PLACEHOLDER: "Multiverse ID",
          MODAL_LOGIN_TITLE: "Entrar",
          CLOSE: "Fechar",
          USERNAME: "Nome de Usuário",
          PASSWORD: "Senha",
-         LOG_ING: "Entrar"
+         LOG_ING: "Entrar",
+         VIEW_TITLE_SETTINGS: "Configurações",
+         MENUITEM_SETTINGS: "Configurações"
        });
   }
 

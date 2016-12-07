@@ -1,7 +1,9 @@
 angular.module('mtgx.infoGatherer', []);
 angular.module('mtgx.cardSearch', []);
-angular.module('mtgx.internalization', ['pascalprecht.translate']);
-angular.module('mtgx', ['ionic', 'mtgx.infoGatherer', 'mtgx.cardSearch', 'mtgx.internalization'])
+angular.module('mtgx.settings', []);
+angular.module('mtgx.persistence', []);
+angular.module('mtgx.internalization', ['pascalprecht.translate', 'mtgx.persistence']);
+angular.module('mtgx', ['ionic', 'mtgx.infoGatherer', 'mtgx.cardSearch', 'mtgx.internalization', 'mtgx.settings', 'mtgx.persistence'])
 .run(run)
 .config(config);
 
@@ -19,6 +21,13 @@ function run($ionicPlatform) {
 
 function config($ionicConfigProvider, $translateProvider) {
   $ionicConfigProvider.tabs.position('bottom'); //Force android tabs on bottom
-  $translateProvider.preferredLanguage("pt-br");
   $translateProvider.useSanitizeValueStrategy('escape');
+
+  var currentLanguage = window.localStorage.getItem("language");
+  if (currentLanguage instanceof String){
+    $translateProvider.preferredLanguage(currentLanguage);
+  } else {
+    $translateProvider.preferredLanguage("pt-br");
+  }
+
 }

@@ -19,9 +19,4 @@ describe('Service Unit Tests', function(){
       httpMock.expectGET(/v1\/cards\//).respond(200);
       infoService.getCard('1');
     }));
-
-    it('Should set module to Enable false', function () {
-      expect(infoService.isEnabled()).toBe(true);
-    });
-
 });
