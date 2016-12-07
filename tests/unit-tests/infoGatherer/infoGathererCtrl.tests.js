@@ -1,8 +1,8 @@
 describe('Info Gatherer', function(){
-    var vm, mockedService, $q, $rootScope, modulo;
+    var vm, mockedService, $q, $rootScope;
 
     beforeEach(function () {
-      modulo = module('mtgx.infoGatherer');
+      module('mtgx.infoGatherer');
     });
 
     beforeEach(function(){
@@ -18,7 +18,7 @@ describe('Info Gatherer', function(){
         .and.returnValue($q.when(sampleResponse));
     });
 
-    it('should foobar', function() {
+    it('should find a card', function() {
       vm.findCard('1');
       $rootScope.$apply();
       expect(vm.ObjCard.name).toBe("name");

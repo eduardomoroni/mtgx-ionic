@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content ng-controller="InternalizationCtrl as vm">
   <ion-list>
     <ion-item menu-close ng-click="login()" href="#">
       {{"menuitem_login" | translate}}
@@ -10,4 +10,17 @@
       {{"menuitem_card_search" | translate}}
     </ion-item>
   </ion-list>
+  <div class="list">
+
+<!-- Melhorar Isso -->
+  <label class="item item-input item-select" >
+    <div class="input-label">
+      {{"language" | translate}}
+    </div>
+    <select ng-model="vm.translation" ng-change="vm.switchLanguage(vm.translation)">
+      <option ng-repeat="language in vm.languages" value="{{language.abbreviation}}"> {{language.name}} </option>
+    </select>
+  </label>
+
+</div>
 </ion-content>
