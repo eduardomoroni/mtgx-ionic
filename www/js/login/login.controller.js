@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('mtgx').controller('LoginCtrl', LoginCtrl);
+  angular.module('mtgx.login').controller('LoginCtrl', LoginCtrl);
 
   function LoginCtrl($scope, $ionicModal, $timeout) {
 

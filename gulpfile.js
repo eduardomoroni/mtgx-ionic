@@ -68,3 +68,14 @@ gulp.task('karma', function(done) {
         done();
     });
 });
+
+gulp.task('run-android', function(done) {
+    karma.start({
+        configFile: __dirname + '/tests/unit-tests.conf.js',
+        singleRun: false
+    }, function() {
+        done();
+    });
+});
+
+//TODO: make a gulp task for ionic run android -l -s -c

@@ -5,7 +5,7 @@ describe('Service Unit Tests', function(){
       module('mtgx.infoGatherer');
     });
 
-    beforeEach(inject(function ($httpBackend, $q, InfoGathererService, $rootScope) {
+    beforeEach(inject(function ($httpBackend, InfoGathererService, $rootScope) {
         httpMock = $httpBackend;
         rootScope = $rootScope;
         infoService = InfoGathererService;
