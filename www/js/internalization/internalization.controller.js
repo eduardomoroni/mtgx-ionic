@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('mtgx.internalization')
-         .controller('InternalizationCtrl', ['$translate', InternalizationCtrl]);
+         .controller('InternalizationCtrl', ['$translate', 'LocalStorageService', InternalizationCtrl]);
 
-  function InternalizationCtrl ($translate){
+  function InternalizationCtrl ($translate, LocalStorageService){
 
       var vm = this;
 
@@ -17,6 +17,7 @@
       vm.translation = $translate.use();
 
       vm.switchLanguage = function(language) {
+        LocalStorageService.setLocalStorage("language", language);
         $translate.use(language);
       }
   }

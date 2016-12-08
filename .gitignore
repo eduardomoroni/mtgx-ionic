@@ -2,9 +2,11 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
+resources/
 platforms/
 plugins/
 temp/
+res/
 
 www/lib/
 

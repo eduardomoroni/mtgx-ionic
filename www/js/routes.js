@@ -4,14 +4,14 @@
   angular.module('mtgx').config(routes);
 
   function routes($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/app/infoGatherer');
+    $urlRouterProvider.otherwise('/app/test');
 
     $stateProvider
       .state('app', {
         url: '/app',
         abstract: true,
         templateUrl: 'templates/layouts/sidemenu.html',
-        controller: 'AppCtrl'
+        controller: 'LoginCtrl'
       })
 
       .state('cardSearch', {
@@ -49,6 +49,25 @@
           'menuContent': {
             templateUrl: 'templates/infoGatherer.html',
             controller: 'InfoGathererCtrl'
+          }
+        }
+    })
+    .state('app.settings', {
+        url: '/settings',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/settings.html',
+            controller: 'SettingsCtrl'
+          }
+        }
+    })
+
+    .state('app.test', {
+        url: '/test',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/test.html',
+            controller: 'PersistenceCtrl'
           }
         }
     });

@@ -5,7 +5,7 @@ describe('Service Unit Tests', function(){
       module('mtgx.infoGatherer');
     });
 
-    beforeEach(inject(function ($httpBackend, $q, InfoGathererService, $rootScope) {
+    beforeEach(inject(function ($httpBackend, InfoGathererService, $rootScope) {
         httpMock = $httpBackend;
         rootScope = $rootScope;
         infoService = InfoGathererService;
@@ -19,9 +19,4 @@ describe('Service Unit Tests', function(){
       httpMock.expectGET(/v1\/cards\//).respond(200);
       infoService.getCard('1');
     }));
-
-    it('Should set module to Enable false', function () {
-      expect(infoService.isEnabled()).toBe(true);
-    });
-
 });
