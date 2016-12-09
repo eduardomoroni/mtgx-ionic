@@ -4,7 +4,7 @@
       <div class="input-label" translate>
         LANGUAGE_LABEL
       </div>
-      <select ng-model="vm.translation" ng-change="vm.switchLanguage(vm.translation)" ng-controller="InternalizationCtrl as vm">
+      <select ng-model="vm.language" ng-change="vm.changeLanguage(vm.language)">
         <option ng-repeat="language in vm.languages" value="{{language.abbreviation}}"> {{language.name}} </option>
       </select>
     </label>

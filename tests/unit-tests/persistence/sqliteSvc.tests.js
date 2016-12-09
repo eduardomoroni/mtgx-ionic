@@ -1,23 +1,21 @@
 describe('Service Unit Tests', function(){
-    var sqliteService, httpMock, rootScope;
+    var sqliteService;
 
     beforeEach(function(){
       module('mtgx.persistence');
     });
 
-    beforeEach(inject(function ($httpBackend, $q, SqliteService, $rootScope) {
-        httpMock = $httpBackend;
-        rootScope = $rootScope;
+    beforeEach(inject(function (SqliteService) {
         sqliteService = SqliteService;
     }));
 
-    it('can get an instance of sqlite factory', inject(function(SqliteService) {
+    it('can get an instance of sqlite factory', function() {
         expect(sqliteService).toBeDefined();
-    }));
+    });
 
-    it('FIGURE OUT HOW TO TEST NATIVE THINGS', inject(function(SqliteService) {
+    it('FIGURE OUT HOW TO TEST NATIVE THINGS', function() {
         expect(true).toBeDefined();
         //TODO: Figure out how to test it
-    }));
+    });
 
 });
