@@ -1,9 +1,7 @@
-describe('Info Gatherer', function(){
+describe('Info Gatherer Controller', function(){
     var vm, mockedService, $q, $rootScope;
 
-    beforeEach(function () {
-      module('mtgx.infoGatherer');
-    });
+    beforeEach(module('mtgx.infoGatherer'));
 
     beforeEach(function(){
       inject(function($controller, InfoGathererService, _$q_, _$rootScope_) {

@@ -7,6 +7,7 @@
 
 	function SqliteService($q, $cordovaSQLite) {
 		//TODO: DELETE THIS SHIT, IS BEING USED TO POPULATE WEB DB
+		//I NEED TO FIGURE OUT HOW TO IMPORT A PRE POPULATED DB
 		window.queries = [
 			//Create tables
 			//"CREATE TABLE IF NOT EXISTS settings (key text primary key, value text);",
@@ -23,7 +24,7 @@
 					_db = window.sqlitePlugin.openDatabase({ name: "mtgx.db", location: 2, createFromLocation: 1 });
 				} else {
 					// For debugging in the browser
-					_db = window.openDatabase("mtgx.db", "1.0", "Database", 200000); 
+					_db = window.openDatabase("mtgx.db", "1.0", "Database", 200000);
 				}
 			}
 			return _db;
