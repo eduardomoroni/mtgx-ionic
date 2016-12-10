@@ -10,12 +10,10 @@
 
 	angular
 		.module('mtgx.persistence')
-		.service('SqliteService', ['$q', '$cordovaSQLite', 'LogService', SqliteService]);
+		.service('SqliteService', ['$q', '$cordovaSQLite', SqliteService]);
 
 	function SqliteService($q, $cordovaSQLite, LogService) {
 		var _db;
-
-		this.LOGGER = LogService;
 
 		this.db = function () {
 			if (!_db) {
@@ -83,11 +81,9 @@
 				this.db().transaction(function (tx) {
 					for (var i = 0; i < initializationQuery.length; i++) {
 						var query = initializationQuery[i].replace(/\\n/g, '\n');
-						this.LOGGER.debug(query);
 						tx.executeSql(query);
 					}
 				}, function (error) {
-					this.LOGGER.error(error);
 					deferred.reject(error);
 				}, function () {
 					deferred.resolve("OK");
@@ -101,7 +97,6 @@
 		};
 
 		this.executeSql = function (query, parameters) {
-			this.LOGGER.debug(query+parameters);
 			return $cordovaSQLite.execute(this.db(), query, parameters);
 		};
 	}

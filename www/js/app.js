@@ -1,5 +1,4 @@
-angular.module('mtgx.log', []);
-angular.module('mtgx.persistence', ['ngCordova', 'mtgx.log']);
+angular.module('mtgx.persistence', ['ngCordova']);
 angular.module('mtgx.infoGatherer', []);
 angular.module('mtgx.cardSearch', []);
 angular.module('mtgx.settings', ['mtgx.persistence', 'mtgx.internalization']);
