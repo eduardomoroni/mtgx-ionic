@@ -1,4 +1,5 @@
-angular.module('mtgx.persistence', ['ngCordova']);
+angular.module('mtgx.log', []);
+angular.module('mtgx.persistence', ['ngCordova', 'mtgx.log']);
 angular.module('mtgx.infoGatherer', []);
 angular.module('mtgx.cardSearch', []);
 angular.module('mtgx.settings', ['mtgx.persistence', 'mtgx.internalization']);
@@ -19,7 +20,7 @@ function run($ionicPlatform, SqliteService, PouchDBService, SettingsService) {
     }
 
     PouchDBService.initDB('mtgx', {adapter: 'websql'});
-    SqliteService.preloadDataBase(true);
+    SqliteService.startDB(true);
     SettingsService.setUpUserPreferences();
   });
 }
