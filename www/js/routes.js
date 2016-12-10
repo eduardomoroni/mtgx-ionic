@@ -67,7 +67,7 @@
         views: {
           'menuContent': {
             templateUrl: 'templates/test.html',
-            controller: 'PersistenceCtrl'
+            controller: 'SettingsCtrl'
           }
         }
     });

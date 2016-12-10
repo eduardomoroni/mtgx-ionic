@@ -9,7 +9,7 @@ describe('Service Unit Tests', function(){
         sqliteService = SqliteService;
     }));
 
-    it('can get an instance of sqlite factory', function() {
+    it('Can get an instance of sqlite factory', function() {
         expect(sqliteService).toBeDefined();
     });
 
