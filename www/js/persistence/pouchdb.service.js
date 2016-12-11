@@ -34,7 +34,23 @@
     };
 
     function getAllDocuments() {
-        return $q.when(_db.allDocs({include_docs: true, attachments: true}));
+			var deferred = $q.defer();
+			var params = {include_docs: true, attachments: true};
+
+			_db.allDocs(params).then(function (response) {
+				var items = [];
+
+				for (var i = 0; i < response.rows.length; i++) {
+					items.push(response.rows[i].doc);
+				}
+
+				return deferred.resolve(items);
+				}, function (err) {
+					return deferred.reject(err);
+				}
+			);
+
+			return deferred.promise;
     };
   }
 })();

@@ -10,7 +10,7 @@
         setUpInternalization(this, InternalizationService);
       },
       getLanguage: function() {
-        return SqliteService.getFirstItem("SELECT value FROM settings WHERE key = 'language';", [])
+        return SqliteService.getItems("SELECT value FROM settings WHERE key = 'language';", [])
         .then(function(data) {
           return data;
         },

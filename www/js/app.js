@@ -19,7 +19,7 @@ function run($ionicPlatform, SqliteService, PouchDBService, SettingsService) {
     }
 
     PouchDBService.initDB('mtgx', {adapter: 'websql'});
-    SqliteService.startDB(true);
+    SqliteService.initDB(true);
     SettingsService.setUpUserPreferences();
   });
 }
