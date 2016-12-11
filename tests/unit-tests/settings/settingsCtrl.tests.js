@@ -16,7 +16,7 @@ describe('Settings Controller', function(){
       vm = $controller('SettingsCtrl', {'$scope': $scope,
             'SettingsService': settingsServiceMock, 'InternalizationService': internalizationServiceMock});
     });
-});
+  });
 
   it('Should expose available translations', function() {
     expect(vm.languages).toEqual(fakeLanguages);

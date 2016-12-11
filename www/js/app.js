@@ -8,7 +8,7 @@ angular.module('mtgx', ['ionic', 'mtgx.login', 'mtgx.infoGatherer', 'mtgx.cardSe
 .run(run)
 .config(config);
 
-function run($ionicPlatform, SqliteService, PouchDBService, SettingsService) {
+function run($ionicPlatform, PouchDBService, SettingsService) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -19,19 +19,13 @@ function run($ionicPlatform, SqliteService, PouchDBService, SettingsService) {
     }
 
     PouchDBService.initDB('mtgx', {adapter: 'websql'});
-    SqliteService.initDB(true);
-    SettingsService.setUpUserPreferences();
+    SettingsService.loadUserSettings();
   });
 }
 
-function config($ionicConfigProvider, $translateProvider, $compileProvider) {
+function config($ionicConfigProvider, $translateProvider) {
   $ionicConfigProvider.tabs.position('bottom'); //Force android tabs on bottom
 
   $translateProvider.useSanitizeValueStrategy('escape');
   $translateProvider.preferredLanguage("pt-br");
-
-  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content|ms-appx|x-wmapp0):|data:image\/|img\//);
-  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
-
-  $ionicConfigProvider.scrolling.jsScrolling(ionic.Platform.isIOS());
 }
