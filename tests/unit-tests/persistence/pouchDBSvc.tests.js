@@ -13,9 +13,8 @@ describe('PouchDB Service', function(){
         expect(pouchDBService).toBeDefined();
     });
 
-    it('FIGURE OUT HOW TO TEST NATIVE THINGS', function() {
+    it('FIGURE OUT HOW TO TEST IT', function() {
         expect(true).toBeDefined();
-        //TODO: Figure out how to test it
     });
 
 });

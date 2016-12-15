@@ -1,5 +1,10 @@
 #MTG X
+<img align="right" src="https://app.codeship.com/projects/d3251c90-81d2-0134-94fa-36079b336971/status?branch=master"/>
 
-<img src="https://app.codeship.com/projects/d3251c90-81d2-0134-94fa-36079b336971/status?branch=master"/>
+##TO RUN
+- npm install
+- bower install
+- ionic serve
 
-![Sample](https://github.com/litehelpers/Cordova-sqlite-storage#sample)
+##TO TEST
+- gulp karma-unit-tests
