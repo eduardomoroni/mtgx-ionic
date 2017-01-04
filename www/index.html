@@ -6,24 +6,9 @@
     <title></title>
 
     <link rel="manifest" href="manifest.json">
-
-    <!-- un-comment this code to enable service worker
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log('service worker installed'))
-          .catch(err => console.log('Error', err));
-      }
-    </script>-->
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -43,7 +28,6 @@
     <script src="js/persistence/sqlite.service.js"></script>
     <script src="js/persistence/pouchdb.service.js"></script>
 
-    <script src="js/login/login.controller.js"></script>
     <script src="js/settings/settings.controller.js"></script>
     <script src="js/settings/settings.service.js"></script>
 
@@ -56,11 +40,9 @@
 
     <script src="js/justATest/test.controller.js"></script>
 
-
     <!-- Another Libs -->
     <script src="lib/angular-translate/angular-translate.min.js"></script>
     <script src="lib/pouchdb/dist/pouchdb.min.js"></script>
-
 
   </head>
   <body ng-app="mtgx">

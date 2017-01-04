@@ -18,7 +18,7 @@
         url: '/cardSearch',
         abstract: true,
         templateUrl: 'templates/layouts/sidemenuAndTabs.html',
-        controller: function($scope) { //Pode ficar mais elegante usando resolve
+        controller: function($scope) {
           $scope.tabsURL = 'templates/cardSearch/cardSearchTabs.html';
         }
       })
@@ -52,6 +52,7 @@
           }
         }
     })
+    
     .state('app.settings', {
         url: '/settings',
         views: {

@@ -3,7 +3,9 @@
     <h1>{{vm.ObjCard.name}}</h1>
     <div class="full-screen-div" data-tap-disabled="true">
       <img ng-src="{{vm.ObjCard.imgURL}}" />
-      <p ng-repeat="rule in vm.ObjCard.rulings">{{rule.date}}: {{rule.text}}</p>
+      <p ng-repeat="rule in vm.ObjCard.rulings">
+        {{rule.date}}: {{rule.text}}
+      </p>
     </div>
   </ion-content>
   <div class="bar bar-footer bar-stable">

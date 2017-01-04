@@ -13,9 +13,8 @@ describe('Service Unit Tests', function(){
         expect(sqliteService).toBeDefined();
     });
 
-    it('FIGURE OUT HOW TO TEST NATIVE THINGS', function() {
+    it('FIGURE OUT HOW TO TEST NATIVE STUFFS', function() {
         expect(true).toBeDefined();
-        //TODO: Figure out how to test it
     });
 
 });

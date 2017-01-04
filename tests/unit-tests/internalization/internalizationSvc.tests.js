@@ -10,7 +10,7 @@ describe('Internalization Service', function(){
         expect($translate.use()).toEqual('pt-br');
       }));
 
-      describe('Testing InternalizationCtrl', function() {
+      describe('Testing InternalizationService', function() {
         var $q, $rootScope, $translate, service;
 
         beforeEach(module('mtgx.internalization'));
