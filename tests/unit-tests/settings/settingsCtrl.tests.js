@@ -11,7 +11,7 @@ describe('Settings Controller', function(){
 
       internalizationServiceMock = InternalizationService;
       spyOn(internalizationServiceMock, 'translationsAvailable')
-                  .and.returnValue(fakeLanguages);//Should be mocked at controller instantiation's time
+                  .and.returnValue(fakeLanguages); //Should be mocked at controller instantiation's time
 
       vm = $controller('SettingsCtrl', {'$scope': $scope,
             'SettingsService': settingsServiceMock, 'InternalizationService': internalizationServiceMock});

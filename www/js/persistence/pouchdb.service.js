@@ -7,31 +7,42 @@
 
 	function PouchDBService($q) {
     var _db;
-    var _documents;
+
 
     return {
         initDB: initDB,
         getAllDocuments: getAllDocuments,
-        addDocument: addDocument,
-        updateDocument: updateDocument,
-        deleteDocument: deleteDocument
+				findById: findById
     };
 
     function initDB(name, options) {
         _db = new PouchDB(name, options);
+				var remoteDB = new PouchDB('http://localhost:5984/cards');
+
+				remoteDB.replicate.to(_db, {live:false}, function(err){
+				        console.err(err);
+				});
     };
 
-    function addDocument(document) {
-      return $q.when(_db.post(document));
-    };
+		function findById(documentId) {
+			var deferred = $q.defer();
+			var params = {include_docs: true, attachments: true, key: documentId};
 
-    function updateDocument(document) {
-      return $q.when(_db.put(document));
-    };
+			_db.allDocs(params).then(function (response) {
+				var items = [];
 
-    function deleteDocument(document) {
-      return $q.when(_db.remove(document));
-    };
+				for (var i = 0; i < response.rows.length; i++) {
+					items.push(response.rows[i].doc);
+				}
+
+				return deferred.resolve(items);
+				}, function (err) {
+					return deferred.reject(err);
+				}
+			);
+
+			return deferred.promise;
+		}
 
     function getAllDocuments() {
 			var deferred = $q.defer();

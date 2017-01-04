@@ -9,7 +9,6 @@
 
       vm.languages = InternalizationService.translationsAvailable();
 
-      //TODO: Is this dumb?
       $scope.$watch(function() { return InternalizationService.getTranslation(); }, function(language) {
         vm.language = language;
       }, true);
